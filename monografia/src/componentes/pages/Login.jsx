@@ -37,33 +37,18 @@ const Login = () => {
         <h1>Sistema de Gestão de TCC</h1>
 
         <div className="input-container">
-          <input
-            type="email"
-            name="email"
-            placeholder="E-mail"
-            required
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+          <input type="email" name="email" placeholder="E-mail" required value={username} onChange={(e) => setUsername(e.target.value)}/>
           <FaUser className="icon" />
         </div>
 
         <div className="input-container">
-          <input
-            type="password"
-            name="password"
-            placeholder="Senha"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <input type="password" name="password" placeholder="Senha" required value={password}  onChange={(e) => setPassword(e.target.value)}/>
           <FaLock className="icon" />
         </div>
 
         <div className="recall-forget">
           <label>
-            <input type="checkbox" />
-            Lembre de mim
+            <input type="checkbox" />  Lembre de mim
           </label>
           <a href="#">Esqueceu a senha?</a>
         </div>
