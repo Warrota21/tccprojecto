@@ -20,14 +20,12 @@ const Login = () => {
       });
 
       if (response.data.success) {
-        alert("Login realizado com sucesso!");
-        navigate('/dashboard');
+        alert("Login realizado com sucesso!"); navigate('/dashboard');
       } else {
         alert("Credenciais inválidas.");
       }
     } catch (error) {
-      console.error("Erro ao fazer login:", error);
-      alert("Erro ao tentar fazer login.");
+      console.error("Erro ao fazer login:", error); alert("Erro ao tentar fazer login.");
     }
   };
 
