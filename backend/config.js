@@ -1,7 +1,7 @@
 // backend/config.js
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize('gestaotcc', 'postgres', '0713', {
+const sequelize = new Sequelize('gestaotcc', 'postgres', 'belilo01', {
   host: 'localhost',
   dialect: 'postgres',
 });
