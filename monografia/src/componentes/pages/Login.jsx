@@ -1,4 +1,5 @@
 // src/pages/Login.jsx
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -54,9 +55,9 @@ const Login = () => {
         <button type="submit">Entrar</button>
 
         <div className="signup-link">
-          <p>
-            Não tem uma conta? <a href="#">Registro</a>
-          </p>
+            <p>
+    Não tem uma conta? <Link to="/register">Registrar</Link>
+            </p>
         </div>
       </form>
     </div>
