@@ -1,28 +1,83 @@
-.dashboard-header {
-    background-color: white;
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid #ddd;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  }
-  
-  .dashboard-title-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .dashboard-logo {
-    height: 60px;
-    width: auto;
-  }
-  
-  .dashboard-title {
-    font-size: 1.75rem;
-    color: #333;
-    margin: 0;
-  }
-  
+/* Espaço para o cabeçalho fixo */
+.dashboard-content {
+  padding: 20px;
+  padding-top: 3cm; /* Espaço reservado para o cabeçalho */
+  display: flex;
+  justify-content: center; /* Centralizar o conteúdo horizontalmente */
+  align-items: center; /* Centralizar o conteúdo verticalmente */
+  gap: 20px;
+  flex-wrap: wrap;
+  min-height: 100vh; /* Garantir que a altura seja a do viewport */
+}
+
+/* Formulário principal */
+.submissao-form {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: auto; /* Centraliza o formulário */
+}
+
+/* Campos do lado direito */
+.submissao-form-right {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Estilo dos rótulos */
+.submissao-form label,
+.submissao-form-right label {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* Campos de entrada */
+.submissao-form input[type="text"],
+.submissao-form input[type="email"],
+.submissao-form input[type="password"],
+.submissao-form select,
+.submissao-form textarea {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Botão de envio */
+.submissao-form-right button {
+  margin-top: 15px;
+  padding: 8px;
+  background-color: #00AEEF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.submissao-form-right button:hover {
+  background-color: #008CBA;
+}
+
+/* Título do formulário */
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}

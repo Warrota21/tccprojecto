@@ -1,28 +1,60 @@
 .dashboard-header {
-    background-color: white;
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid #ddd;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background-color: white;
+  padding: 1rem 0.1rem; /* Reduzi o padding para deixar menos fino */
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ajuste dinâmico para telas menores */
+@media (max-width: 1200px) {
+  .dashboard-header {
+      padding: 0.8rem 1.2rem;
   }
-  
-  .dashboard-title-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .dashboard-logo {
-    height: 60px;
-    width: auto;
-  }
-  
+
   .dashboard-title {
-    font-size: 1.75rem;
-    color: #333;
-    margin: 0;
+      font-size: 1.5rem;
   }
-  
+
+  .dashboard-logo {
+      height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-header {
+      padding: 0.6rem 1rem;
+  }
+
+  .dashboard-title {
+      font-size: 1.25rem;
+  }
+
+  .dashboard-logo {
+      height: 40px;
+  }
+}
+
+.dashboard-title-container {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.dashboard-logo {
+  height: 60px;
+  width: auto;
+  transition: height 0.3s ease;
+}
+
+.dashboard-title {
+  font-size: 1.75rem;
+  color: #333;
+  margin: 0;
+  transition: font-size 0.3s ease;
+}
+
