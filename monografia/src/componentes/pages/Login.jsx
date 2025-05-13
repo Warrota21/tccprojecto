@@ -16,41 +16,37 @@ const Login = () => {
 
     try {
       const response = await axios.post('http://localhost:5000/api/login', {
-        email: username,
+        email: username, 
         password: password
       });
 
       if (response.data.success) {
         alert("Login realizado com sucesso!"); navigate('/dashboard');
-      } else {
-        alert("Credenciais inválidas.");
+      } else {alert("Credenciais inválidas.");
       }
     } catch (error) {
-      console.error("Erro ao fazer login:", error); alert("Erro ao tentar fazer login.");
+      console.error("Erro ao fazer login:", error); 
+      alert("Erro ao tentar fazer login.");
     }
   };
-  // TESTANDO*// 
-  //samito warrota
-
+  
   return (
     <div className="formulario">
       <form onSubmit={handleSubmit}>
         <h1>Sistema de Gestão de TCC</h1>
 
         <div className="input-container">
-          <input type="email" name="email" placeholder="E-mail" required value={username} onChange={(e) => setUsername(e.target.value)}/>
-          <FaUser className="icon" />
+          <input type="email" name="email" placeholder="E-mail" required value={username} onChange={(e) => setUsername(e.target.value)}/> <FaUser className="icon" />
         </div>
 
         <div className="input-container">
-          <input type="password" name="password" placeholder="Senha" required value={password}  onChange={(e) => setPassword(e.target.value)}/>
-          <FaLock className="icon" />
+          <input type="password" name="password" placeholder="Senha" required value={password}  onChange={(e) => setPassword(e.target.value)}/> <FaLock className="icon" />
         </div>
 
         <div className="recall-forget">
           <label>
             <input type="checkbox" />  Lembre de mim
-          </label>
+          </label> 
           <a href="#">Esqueceu a senha?</a>
         </div>
 
@@ -58,7 +54,7 @@ const Login = () => {
 
         <div className="signup-link">
             <p>
-    Não tem uma conta? <Link to="/register">Registrar</Link>
+    Não tem uma conta? <Link to="/Registro">Registrar</Link>
             </p>
         </div>
       </form>
