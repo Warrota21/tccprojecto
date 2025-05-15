@@ -9,6 +9,7 @@ import '../css/Login.css';
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [tipoUsuario, settipoUsuario] =useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -17,13 +18,26 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/login', {
         email: username, 
-        password: password
+        password: password,
+        tipoUsuario: tipoUsuario
       });
 
+      console.log('Dadoss response ' +response)
       if (response.data.success) {
-        alert("Login realizado com sucesso!"); navigate('/dashboard');
-      } else {alert("Credenciais inválidas.");
-      }
+      console.log("Login realizado com sucesso!");
+            if (tipoUsuario == 'Estudante') {
+              console.log('Tipo usuario '+ tipoUsuario);   
+              navigate('/dashboard');
+
+                } else if (tipoUsuario == 'Orientador'){ 
+                  console.log('Tipo usuario '+ tipoUsuario); 
+                  navigate('/orientador');
+                } else if (tipoUsuario == 'Comissao_cientifica'){
+                  console.log('Tipo usuario ' + tipoUsuario); 
+                  navigate('/comissao');
+                } else{
+                  alert('Erro de login if interior')
+                } }
     } catch (error) {
       console.error("Erro ao fazer login:", error); 
       alert("Erro ao tentar fazer login.");
@@ -43,6 +57,13 @@ const Login = () => {
           <input type="password" name="password" placeholder="Senha" required value={password}  onChange={(e) => setPassword(e.target.value)}/> <FaLock className="icon" />
         </div>
 
+        <select name="tipoUsuario" required value={tipoUsuario} onChange={(e) => settipoUsuario(e.target.value)}>
+            <option value="">Selecione o tipo de usuario</option>
+            <option value="Estudante">Estudante</option>
+            <option value="Orientador">Orientador</option>
+            <option value="Comissao_cientifica">Comissao cientifica</option>
+        </select>
+
         <div className="recall-forget">
           <label>
             <input type="checkbox" />  Lembre de mim
@@ -61,5 +82,5 @@ const Login = () => {
     </div>
   );
 };
-//teste de github
+
 export default Login;

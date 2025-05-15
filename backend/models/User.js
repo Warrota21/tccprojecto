@@ -4,7 +4,8 @@ const sequelize = require('../config');
 
 const User = sequelize.define('User', {
     email: DataTypes.STRING,
-    senha: DataTypes.STRING
+    senha: DataTypes.STRING,
+    tipoUsuario: DataTypes.STRING
 });
 
 module.exports = User;

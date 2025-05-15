@@ -16,8 +16,6 @@ function Dashboard() {
           <ul>
             <li><Link to="/submissao">Submissão de Trabalho</Link></li>
             <li><Link to="/detalhes">Detalhes do Trabalho</Link></li>
-            <li><Link to="/orientacoes">Orientações</Link></li>
-            <li><Link to="/avaliacoes">Avaliações</Link></li>
             <li><Link to="/cronograma">Cronograma e Prazos</Link></li>
           </ul>
         </nav>

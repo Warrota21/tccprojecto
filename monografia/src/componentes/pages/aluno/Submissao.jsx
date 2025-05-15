@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Cabecalho from '../../comun/cabecalho';
-import '../../css/aluno/submissao.css';
+import '../../css/aluno/submissao.css'; // Certifique-se de editar esse CSS também
 
 function Submissao() {
   const [formData, setFormData] = useState({
@@ -22,13 +23,11 @@ function Submissao() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Basic Password Match Check
     if (formData.senha !== formData.confirmacaoSenha) {
       alert("As senhas não coincidem!");
       return;
     }
 
-    // Form Submission
     console.log('Formulário Enviado:', formData);
     alert("Formulário enviado com sucesso!");
   };
@@ -36,8 +35,8 @@ function Submissao() {
   return (
     <div className="dashboard-container">
       <Cabecalho />
-      <main className="dashboard-content">
-        
+      <main className="dashboard-content horizontal-form-container">
+        {/* Formulário principal */}
         <form onSubmit={handleSubmit} className="submissao-form">
           <label>Nome *</label>
           <input type="text" name="nome" value={formData.nome} onChange={handleChange} required />
@@ -50,7 +49,7 @@ function Submissao() {
             onChange={handleChange} 
             required 
             placeholder="Seu e-mail @gmail.com"
-            pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+            pattern="^[a-zA-Z0-9._%+-]+@gmail\\.com$"
             title="Apenas e-mails @gmail.com são aceitos"
           />
 
@@ -79,10 +78,18 @@ function Submissao() {
 
           <button type="submit">Enviar</button>
         </form>
+
+        {/* Botão de submissão final */}
+        <form className="form-link-tcc">
+          <Link to="/submetertcc" className="btn-link-tcc">
+            <span className="plus-icon">+</span> Ir para Submissão Final
+          </Link>
+        </form>
       </main>
     </div>
   );
 }
 
 export default Submissao;
+
 

@@ -81,3 +81,41 @@ h2 {
   color: #333;
   text-align: center;
 }
+.horizontal-form-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.submissao-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.form-link-tcc {
+  margin-top: 2rem;
+}
+
+.btn-link-tcc {
+  display: inline-flex;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-link-tcc:hover {
+  background-color: #0056b3;
+}
+
+.plus-icon {
+  font-size: 1.5rem;
+  margin-right: 8px;
+}
