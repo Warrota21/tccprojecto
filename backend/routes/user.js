@@ -5,9 +5,9 @@ const User = require('../models/User');
 
 // Rota de registro (já existente)
 router.post('/users', async (req, res) => {
-  const { email, senha } = req.body;
+  const { email, senha, tipoUsuario } = req.body;
   try {
-    const user = await User.create({ email, senha });
+    const user = await User.create({ email, senha, tipoUsuario });
     res.status(201).json(user);
   } catch (err) {
     res.status(500).json({ message: 'Erro ao criar usuário', error: err });
@@ -22,7 +22,7 @@ router.get('/users', async (req, res) => {
 
 // ✅ NOVA ROTA DE LOGIN
 router.post('/login', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, tipoUsuario } = req.body;
 
   try {
     // Procura usuário com email fornecido
