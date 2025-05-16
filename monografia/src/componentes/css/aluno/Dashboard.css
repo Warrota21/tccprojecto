@@ -1,97 +1,66 @@
+/* src/css/aluno/Dashboard.css */
+
 .dashboard-container {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f8; /* Um tom de cinza claro suave */
-    min-height: 100vh;
-    color: #333; /* Cor de texto principal mais escura */
+  display: flex;
+  min-height: 100vh;
+  font-family: sans-serif;
 }
 
-.dashboard-header {
-    background-color: #fff; /* Branco puro para um contraste limpo */
-    padding: 1.5rem 2rem; /* Reduzindo um pouco o padding vertical */
-    text-align: center;
-    border-bottom: 1px solid #e0e0e0; /* Borda mais clara e sutil */
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Adicionando uma sombra suave */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(to right, #007bff);
+  color: white;
+  padding: 20px;
 }
 
-.dashboard-title-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem; /* Aumentando um pouco o espaçamento */
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
-.dashboard-logo {
-    height: 50px; /* Reduzindo um pouco o tamanho do logo */
-    width: auto;
+.sidebar ul {
+  list-style: none;
+  padding: 0;
 }
 
-.dashboard-title {
-    font-size: 1.8rem; /* Reduzindo um pouco o tamanho da fonte */
-    margin: 0;
-    color: #374151; /* Cor do título mais profissional */
+.sidebar li {
+  margin-bottom: 15px;
 }
 
-.dashboard-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem; /* Ajustando o espaçamento dos links */
+.sidebar a {
+  color: white;
+  text-decoration: none;
 }
 
-.dashboard-nav a {
-    text-decoration: none;
-    color: #4b5563; /* Cor dos links mais sóbria */
-    font-weight: 500;
-    padding: 0.5rem 1rem; /* Adicionando um pouco de padding aos links */
-    border-radius: 0.25rem; /* Pequeno arredondamento para um toque moderno */
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out; /* Transição suave */
+.sidebar a:hover {
+  text-decoration: underline;
 }
 
-.dashboard-nav a:hover {
-    background-color: #e5e7eb; /* Cor de fundo suave ao passar o mouse */
-    color: #1e293b; /* Cor do texto mais escura ao passar o mouse */
-    text-decoration: none; /* Removendo o sublinhado no hover para um visual mais limpo */
+.dashboard-main {
+  flex: 1;
+  background-color: #f0f4f8;
+  padding: 30px;
 }
 
-.dashboard-content {
-    padding: 6rem 2rem 2rem; /* Ajustando o padding superior para o header menor */
-    max-width: 1200px; /* Adicionando uma largura máxima para conteúdo centralizado em telas grandes */
-    margin: 0 auto; /* Centralizando o conteúdo */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
-/* Estilos adicionais que você pode querer considerar para o conteúdo interno: */
 .card {
-    background-color: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
 }
 
-.card-title {
-    font-size: 1.5rem;
-    color: #374151;
-    margin-bottom: 1rem;
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* Estilos para botões (exemplo) */
-.button {
-    background-color: #2563eb;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.button:hover {
-    background-color: #1d4ed8;
-}
