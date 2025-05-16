@@ -12,16 +12,33 @@ const Registro = () => {
   const [contacto, setContacto] = useState('');
   const [departamento, setDepartamento] = useState('');
   const [especialidade, setEspecialidade] = useState('');
+  const [tipoUsuario, setTipoUsuario] = useState('Estudante'); // Padrao
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/register', {
-        nomeCompleto,
-        email, password, idEstudante, contacto,departamento,especialidade
-      });
+      const response = await axios.post('http://localhost:5000/api/registrar', {
+
+                      nome: nomeCompleto,
+                      email,
+                      senha: password,
+                      tipoUsuario,
+                      ...(tipoUsuario === 'Estudante' && {
+                        numeroEstudante: idEstudante,
+                        classe: especialidade
+                      }),
+                      ...(tipoUsuario === 'Orientador' && {
+                        disciplina: especialidade,
+                        areaFormacao: departamento,
+                        interno: true // ou false, conforme logica
+                      }),
+                      ...(tipoUsuario === 'Comissao' && {
+                        curso: especialidade,
+                        interno: false // ou true
+                      })
+                    });
 
       if (response.data.success) {
         alert('Registro realizado com sucesso!'); navigate('/login');
@@ -35,6 +52,16 @@ const Registro = () => {
     <div className="formulario">
       <form onSubmit={handleSubmit}>
         <h1>Cadastro</h1>
+
+        <div className="input-container">
+          <h2> Selecione o usuario</h2>
+            <select value={tipoUsuario} onChange={(e) => setTipoUsuario(e.target.value)} required>
+              <option value="Estudante">Estudante</option>
+              <option value="Orientador">Orientador</option>
+              <option value="Comissao">Comissão Científica</option>
+            </select>
+        </div>
+
 
         <div className="input-container">
           <input type="text" name="nomeCompleto" placeholder="Nome completo" required value={nomeCompleto} onChange={(e) => setNomeCompleto(e.target.value)}

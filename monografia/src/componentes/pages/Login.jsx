@@ -12,37 +12,41 @@ const Login = () => {
   const [tipoUsuario, settipoUsuario] =useState("");
   const navigate = useNavigate();
 
+  //Funcao para login
   const handleSubmit = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    try {
-      const response = await axios.post('http://localhost:5000/api/login', {
-        email: username, 
-        password: password,
-        tipoUsuario: tipoUsuario
-      });
+  try {
+    const response = await axios.post('http://localhost:5000/api/login', {
+      email: username,
+      password: password
+    });
 
-      console.log('Dadoss response ' +response)
-      if (response.data.success) {
-      console.log("Login realizado com sucesso!");
-            if (tipoUsuario == 'Estudante') {
-              console.log('Tipo usuario '+ tipoUsuario);   
-              navigate('/dashboard');
+    console.log('Resposta:', response.data);
 
-                } else if (tipoUsuario == 'Orientador'){ 
-                  console.log('Tipo usuario '+ tipoUsuario); 
-                  navigate('/orientador');
-                } else if (tipoUsuario == 'Comissao_cientifica'){
-                  console.log('Tipo usuario ' + tipoUsuario); 
-                  navigate('/comissao');
-                } else{
-                  alert('Erro de login if interior')
-                } }
-    } catch (error) {
-      console.error("Erro ao fazer login:", error); 
-      alert("Erro ao tentar fazer login.");
+    if (response.data.success) {
+      const tipo = response.data.tipoUsuario;
+
+      console.log("Login realizado com sucesso! Tipo:", tipo);
+
+      if (tipo === 'Estudante') {
+        navigate('/dashboard');
+      } else if (tipo === 'Orientador') {
+        navigate('/orientador');
+      } else if (tipo === 'Comissao') {
+        navigate('/comissao');
+      } else {
+        alert("Tipo de usuário desconhecido.");
+      }
+    } else {
+      alert("Credenciais inválidas.");
     }
-  };
+  } catch (error) {
+    console.error("Erro ao fazer login:", error);
+    alert("Erro ao tentar fazer login.");
+  }
+};
+
   
   return (
     <div className="formulario">
@@ -57,13 +61,7 @@ const Login = () => {
           <input type="password" name="password" placeholder="Senha" required value={password}  onChange={(e) => setPassword(e.target.value)}/> <FaLock className="icon" />
         </div>
 
-        <select name="tipoUsuario" required value={tipoUsuario} onChange={(e) => settipoUsuario(e.target.value)}>
-            <option value="">Selecione o tipo de usuario</option>
-            <option value="Estudante">Estudante</option>
-            <option value="Orientador">Orientador</option>
-            <option value="Comissao_cientifica">Comissao cientifica</option>
-        </select>
-
+  
         <div className="recall-forget">
           <label>
             <input type="checkbox" />  Lembre de mim
