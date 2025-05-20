@@ -1,0 +1,87 @@
+/* src/css/orientador/GerenciamentoTCC.css */
+
+.tcc-container {
+  padding: 30px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.tcc-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.filter-buttons {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.filter-buttons button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-buttons button.active {
+  background-color: #0056b3;
+}
+
+.filter-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.tcc-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.tcc-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.tcc-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.tcc-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.tcc-actions button {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.tcc-actions .approve {
+  background-color: #28a745;
+}
+
+.tcc-actions .reject {
+  background-color: #dc3545;
+}
+
+.tcc-actions .request-revision {
+  background-color: #ffc107;
+}
+
+.tcc-actions button:hover {
+  filter: brightness(0.9);
+}

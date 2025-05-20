@@ -1,45 +1,68 @@
-import '../css/aluno/Dashboard.css';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaEdit, FaUserCog, FaCheckCircle, FaFileAlt } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './Comissao.css';
 
 function Comissao() {
-  const cards = [
-    { title: "Emitir Pareceres", path: "/emitir-pareceres", icon: <FaEdit /> },
-    { title: "Gerenciar Membros", path: "/gerenciar-membros", icon: <FaUserCog /> },
-    { title: "Validar Trabalhos", path: "/validar-trabalhos", icon: <FaCheckCircle /> },
-    { title: "Ver Relatórios Finais", path: "/ver-relatorios-finais", icon: <FaFileAlt /> },
-  ];
+  const [tccs, setTccs] = useState([]);
+  const [statusCount, setStatusCount] = useState({
+    pendente: 0,
+    emAvaliacao: 0,
+    aprovado: 0,
+    rejeitado: 0,
+  });
+
+  useEffect(() => {
+    async function fetchTccs() {
+      try {
+        const res = await axios.get('http://localhost:3000/api/comissao/tccs');
+        setTccs(res.data);
+
+        // Contar status
+        const counts = { pendente: 0, emAvaliacao: 0, aprovado: 0, rejeitado: 0 };
+        res.data.forEach(tcc => {
+          counts[tcc.status] = (counts[tcc.status] || 0) + 1;
+        });
+        setStatusCount(counts);
+      } catch (error) {
+        alert('Erro ao carregar TCCs');
+      }
+    }
+    fetchTccs();
+  }, []);
 
   return (
-    <div className="dashboard-container">
-      {/* Sidebar */}
+    <div className="dashboard-comissao-container">
       <aside className="sidebar">
-        <h2>Painel de Administração</h2>
-        <nav>
-          <ul>
-            {cards.map((card, index) => (
-              <li key={index}><Link to={card.path}>{card.title}</Link></li>
-            ))}
-          </ul>
-        </nav>
+        <h2>Menu Comissão</h2>
+        <ul>
+          <li>TCCs para Avaliar</li>
+          <li>Bancas</li>
+          <li>Relatórios</li>
+          <li>Notificações</li>
+        </ul>
       </aside>
 
-      {/* Conteúdo principal com cards */}
       <main className="dashboard-main">
-        <div className="card-grid">
-          {cards.map((card, index) => (
-            <Link to={card.path} className="card" key={index}>
-              <div className="icon">{card.icon}</div>
-              <h3>{card.title}</h3>
-              <p>Gerencie as atividades relacionadas a {card.title.toLowerCase()}.</p>
-            </Link>
-          ))}
+        <h1>Dashboard Comissão Científica</h1>
+
+        <div className="status-cards">
+          <div className="card pendente">Pendentes: {statusCount.pendente}</div>
+          <div className="card em-avaliacao">Em Avaliação: {statusCount.emAvaliacao}</div>
+          <div className="card aprovado">Aprovados: {statusCount.aprovado}</div>
+          <div className="card rejeitado">Rejeitados: {statusCount.rejeitado}</div>
         </div>
+
+        <h2>TCCs para avaliação</h2>
+        <ul className="tcc-list">
+          {tccs.map(tcc => (
+            <li key={tcc.id} className={`tcc-item ${tcc.status}`}>
+              <strong>{tcc.title}</strong> - {tcc.studentName} - Status: {tcc.status}
+            </li>
+          ))}
+        </ul>
       </main>
     </div>
   );
 }
 
 export default Comissao;
-

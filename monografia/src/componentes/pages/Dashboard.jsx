@@ -1,4 +1,4 @@
-import '../css/aluno/Dashboard.css';
+import '../css/aluno/DashboardAluno.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFileAlt, FaInfoCircle, FaCalendarAlt } from 'react-icons/fa';

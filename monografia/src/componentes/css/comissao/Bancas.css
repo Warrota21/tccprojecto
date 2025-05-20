@@ -1,0 +1,62 @@
+.bancas-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.sidebar {
+  width: 220px;
+  background: linear-gradient(to right, #007bff, #0056b3);
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  text-decoration: underline;
+}
+
+.bancas-main {
+  flex: 1;
+  background-color: #f0f4f8;
+  padding: 30px;
+}
+
+.bancas-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.bancas-table th,
+.bancas-table td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.bancas-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.bancas-table tr:hover {
+  background-color: #f1f9ff;
+}
