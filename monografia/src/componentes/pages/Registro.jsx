@@ -4,6 +4,7 @@ import axios from 'axios';
 import { FaUser, FaLock, FaEnvelope, FaPhoneAlt, FaBuilding } from 'react-icons/fa'; // Novos ícones importados
 import '../css/Registro.css';
 
+
 const Registro = () => {
   const [nomeCompleto, setNomeCompleto] = useState('');
   const [email, setEmail] = useState('');
@@ -49,6 +50,7 @@ const Registro = () => {
     }
   };
   return (
+  
     <div className="formulario">
       <form onSubmit={handleSubmit}>
         <h1>Cadastro</h1>
@@ -109,6 +111,7 @@ const Registro = () => {
         <div className="signup-link"> <p>Já tem uma conta?</p> <Link to="/login">Voltar para Login</Link>
         </div>
       </form>
+      
     </div>
   );
 };

@@ -9,7 +9,7 @@ import '../css/Login.css';
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [tipoUsuario, settipoUsuario] =useState("");
+  
   const navigate = useNavigate();
 
   //Funcao para login
@@ -19,7 +19,7 @@ const Login = () => {
   try {
     const response = await axios.post('http://localhost:5000/api/login', {
       email: username,
-      password: password
+      senha: password
     });
 
     console.log('Resposta:', response.data);
@@ -73,7 +73,7 @@ const Login = () => {
 
         <div className="signup-link">
             <p>
-    Não tem uma conta? <Link to="/Registro">Registrar</Link>
+              Não tem uma conta? <Link to="/Registro">Registrar</Link>
             </p>
         </div>
       </form>

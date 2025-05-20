@@ -1,20 +1,21 @@
 import '../css/aluno/Dashboard.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFileAlt, FaInfoCircle, FaCalendarAlt } from 'react-icons/fa';
+import { FaEdit, FaUserCog, FaCheckCircle, FaFileAlt } from 'react-icons/fa';
 
-function Dashboard() {
+function Comissao() {
   const cards = [
-    { title: "Submissão de Trabalho", path: "/submissao", icon: <FaFileAlt /> },
-    { title: "Detalhes do Trabalho", path: "/detalhes", icon: <FaInfoCircle /> },
-    { title: "Cronograma e Prazos", path: "/cronograma", icon: <FaCalendarAlt /> },
+    { title: "Emitir Pareceres", path: "/emitir-pareceres", icon: <FaEdit /> },
+    { title: "Gerenciar Membros", path: "/gerenciar-membros", icon: <FaUserCog /> },
+    { title: "Validar Trabalhos", path: "/validar-trabalhos", icon: <FaCheckCircle /> },
+    { title: "Ver Relatórios Finais", path: "/ver-relatorios-finais", icon: <FaFileAlt /> },
   ];
 
   return (
     <div className="dashboard-container">
       {/* Sidebar */}
       <aside className="sidebar">
-        <h2>Formulários</h2>
+        <h2>Painel de Administração</h2>
         <nav>
           <ul>
             {cards.map((card, index) => (
@@ -31,7 +32,7 @@ function Dashboard() {
             <Link to={card.path} className="card" key={index}>
               <div className="icon">{card.icon}</div>
               <h3>{card.title}</h3>
-              <p>Acesse informações sobre {card.title.toLowerCase()}.</p>
+              <p>Gerencie as atividades relacionadas a {card.title.toLowerCase()}.</p>
             </Link>
           ))}
         </div>
@@ -40,5 +41,5 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Comissao;
 
