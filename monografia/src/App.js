@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Registro from './componentes/pages/Registro';
 import Login from './componentes/pages/Login';
 import Dashboard from './componentes/pages/Dashboard.jsx';
-import Submissao from './componentes/pages/aluno/Submissao.jsx';
-import Detalhes from './componentes/pages/aluno/Detalhes.jsx';
+import Submissao from './componentes/pages/aluno/SubmissaoTcc.jsx';
+import Detalhes from './componentes/pages/aluno/FeedbackAluno.jsx';
 import Cronograma from './componentes/pages/aluno/Cronograma.jsx';
 import Navbar from './layout/Navbar.jsx';
 import Footer from './layout/Footer.jsx';
